@@ -235,7 +235,7 @@ const Card = ({
       ? (child.type as any).displayName
       : null
   );
-  const computedElevation =
+  const computedElevation =accessible={acce}
     dark && isAdaptiveMode ? elevationDarkAdaptive : elevation;
 
   const { backgroundColor, borderColor: themedBorderColor } = getCardColors({
@@ -261,7 +261,6 @@ const Card = ({
     <View
       style={[styles.innerContainer, contentStyle]}
       testID={testID}
-      accessible={accessible}
     >
       {React.Children.map(children, (child, index) =>
         React.isValidElement(child)
@@ -311,6 +310,7 @@ const Card = ({
 
       {hasPassedTouchHandler ? (
         <TouchableWithoutFeedback
+          accessible={accessible}
           delayPressIn={0}
           disabled={disabled}
           delayLongPress={delayLongPress}
